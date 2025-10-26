@@ -17,13 +17,20 @@ class ChatView extends StackedView<ChatViewModel> {
   ) {
     return Scaffold(
       appBar: const ChatAppBar(),
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Chat(
         chatController: viewModel.chatController,
         currentUserId: viewModel.userId,
         onMessageSend: viewModel.handleMessageSend,
         resolveUser: viewModel.resolveUser,
         theme: viewModel.isDarkMode ? ChatTheme.dark() : ChatTheme.light(),
+        builders: Builders(
+          chatAnimatedListBuilder: (context, itemBuilder) {
+            return ChatAnimatedListReversed(
+              itemBuilder: itemBuilder,
+            );
+          },
+        ),
       ),
     );
   }

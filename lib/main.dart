@@ -5,14 +5,26 @@ import 'package:flutter_ai_chat/app/app.locator.dart';
 import 'package:flutter_ai_chat/app/app.router.dart';
 import 'package:flutter_ai_chat/main_viewmodel.dart';
 import 'package:flutter_ai_chat/ui/views/startup/startup_viewmodel.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+Future setupServices() async {
+  try {
+    // all the stacked services
+    await setupLocator();
+    setupDialogUi();
+    setupBottomSheetUi();
+
+    await dotenv.load(fileName: '.env');
+  } catch (error) {
+    rethrow;
+  }
+}
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await setupLocator();
-  setupDialogUi();
-  setupBottomSheetUi();
+  await setupServices();
   runApp(const MainApp());
 }
 

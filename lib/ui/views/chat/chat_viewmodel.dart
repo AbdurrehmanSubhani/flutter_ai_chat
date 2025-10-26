@@ -22,7 +22,7 @@ class ChatViewModel extends ReactiveViewModel {
 
   Future handleMessageSend(String text) async {
     try {
-      _chatManagerService.addChatTextMessage(text, userId);
+      await _chatManagerService.createAiChatCompletionMessage(text);
     } catch (e) {
       print('Error sending message: $e');
     }

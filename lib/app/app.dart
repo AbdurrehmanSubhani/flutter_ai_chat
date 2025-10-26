@@ -20,10 +20,10 @@ import 'package:flutter_ai_chat/services/theme_manager_service.dart';
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
+    LazySingleton(classType: ThemeManagerService),
     LazySingleton(classType: AiChatService),
     LazySingleton(classType: UserManagerService),
     LazySingleton(classType: ChatManagerService),
-    LazySingleton(classType: ThemeManagerService),
 // @stacked-service
   ],
   bottomsheets: [

@@ -31,8 +31,8 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => BottomSheetService());
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => NavigationService());
+  locator.registerLazySingleton(() => ThemeManagerService());
   locator.registerLazySingleton(() => AiChatService());
   locator.registerLazySingleton(() => UserManagerService());
   locator.registerLazySingleton(() => ChatManagerService());
-  locator.registerLazySingleton(() => ThemeManagerService());
 }
