@@ -1,22 +1,30 @@
 import 'package:flutter_ai_chat/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:flutter_ai_chat/ui/dialogs/info_alert/info_alert_dialog.dart';
-import 'package:flutter_ai_chat/ui/views/home/home_view.dart';
 import 'package:flutter_ai_chat/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:flutter_ai_chat/ui/views/chat/chat_view.dart';
+import 'package:flutter_ai_chat/services/ai_chat_service.dart';
+import 'package:flutter_ai_chat/services/user_manager_service.dart';
+import 'package:flutter_ai_chat/services/chat_manager_service.dart';
+import 'package:flutter_ai_chat/services/theme_manager_service.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
-    MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
-    // @stacked-route
+    MaterialRoute(page: ChatView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
-    // @stacked-service
+    LazySingleton(classType: AiChatService),
+    LazySingleton(classType: UserManagerService),
+    LazySingleton(classType: ChatManagerService),
+    LazySingleton(classType: ThemeManagerService),
+// @stacked-service
   ],
   bottomsheets: [
     StackedBottomsheet(classType: NoticeSheet),
